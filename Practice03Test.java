@@ -5,6 +5,7 @@ public class Practice03Test {
 
 	protected int count = 0;
 	protected double [] arr;
+	public int curr_min_index;
 
 
 	/**
@@ -53,12 +54,25 @@ public class Practice03Test {
 
 
 	public int find_min_iterative () {
-		// TODO: Fill in this iterative function.
+		curr_min_index = 0;
+		for(int i=1;i<arr.length;i++){
+			if(arr[i]<arr[curr_min_index])
+				curr_min_index = i;
+		}
+		return curr_min_index;
 	}
 
 
-	public int find_min_recursive () {
-		// TODO: Fill in this recursive function.
+	public int find_min_recursive() {
+		if(count==1)
+			return curr_min_index;
+		else if(count==arr.length)
+			curr_min_index = count-1;
+		else if(arr[count-1]<arr[curr_min_index])
+			curr_min_index = count-1;
+
+		count--;
+		return find_min_recursive();
 	}
 
 
