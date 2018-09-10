@@ -5,7 +5,7 @@ public class Practice03Test {
 
 	protected int count = 0;
 	protected double [] arr;
-	public int curr_min_index;
+	public int curr_min_index; //Global variable to track the index of min value
 
 
 	/**
@@ -64,7 +64,7 @@ public class Practice03Test {
 
 
 	public int find_min_recursive() {
-		if(count==1)
+		if(count==0)
 			return curr_min_index;
 		else if(count==arr.length)
 			curr_min_index = count-1;
